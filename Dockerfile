@@ -113,3 +113,9 @@ RUN mkdir ~/behat && \
         "behat/mink-extension:^2.2" \
         "behat/mink-goutte-driver:^1.2" \
         "drupal/drupal-extension:*"
+
+# Add NPM
+RUN apk add --update nodejs nodejs-npm \
+
+# Add linkcheck
+docker build -t filiph/linkcheck .
