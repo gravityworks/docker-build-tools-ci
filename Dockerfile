@@ -1,13 +1,6 @@
 # Use an official Python runtime as a parent image
 FROM circleci/php:7.3-node-browsers
 
-RUN curl -s https://api.github.com/repos/filiph/linkcheck/releases/latest \
-| grep 'browser_download_url.*exe"' \
-| cut -d : -f 2,3 \
-| tr -d \" \
-| xargs -n 1 curl -sSL \
-| tar -xz --strip-components=1
-
 # Switch to root user
 USER root
 
@@ -120,12 +113,6 @@ RUN mkdir ~/behat && \
         "behat/mink-extension:^2.2" \
         "behat/mink-goutte-driver:^1.2" \
         "drupal/drupal-extension:*"
-
-## Add NPM
-RUN apt-get install -y curl \
-  && curl -sL https://deb.nodesource.com/setup_9.x | bash - \
-  && apt-get install -y nodejs \
-  && curl -L https://www.npmjs.com/install.sh | sh
 
 # Add linkcheck
 # docker build -t filiph/linkcheck .
