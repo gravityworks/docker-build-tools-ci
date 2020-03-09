@@ -1,6 +1,8 @@
 # Use an official Python runtime as a parent image
 FROM circleci/php:7.3-node-browsers
 
+BUILD -t filiph/linkcheck .
+
 # Switch to root user
 USER root
 
@@ -121,4 +123,5 @@ RUN apt-get install -y curl \
   && curl -L https://www.npmjs.com/install.sh | sh
 
 # Add linkcheck
-docker build -t filiph/linkcheck .
+# docker build -t filiph/linkcheck .
+# RUN git clone https://github.com/filiph/linkcheck.git; bats/install.sh /usr/local
