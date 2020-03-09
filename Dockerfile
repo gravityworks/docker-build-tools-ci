@@ -1,5 +1,6 @@
 # Use an official Python runtime as a parent image
 FROM circleci/php:7.3-node-browsers
+FROM node:10.19
 
 # Switch to root user
 USER root
@@ -114,8 +115,19 @@ RUN mkdir ~/behat && \
         "behat/mink-goutte-driver:^1.2" \
         "drupal/drupal-extension:*"
 
-# Add NPM
-RUN apk add --update nodejs nodejs-npm \
+## Add NPM
+# update 
+apt-get update
+# install curl 
+apt-get install curl
+# get install script and pass it to execute: 
+curl -sL https://deb.nodesource.com/setup_4.x | bash
+# and install node 
+apt-get install nodejs
+# confirm that it was successful 
+node -v
+# npm installs automatically 
+npm -v
 
 # Add linkcheck
 docker build -t filiph/linkcheck .
