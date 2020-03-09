@@ -1,8 +1,6 @@
 # Docker Build Tools CI
 
-[![docker pull quay.io/pantheon-public/build-tools-ci](https://img.shields.io/badge/image-quay-blue.svg)](https://quay.io/repository/pantheon-public/build-tools-ci)
-
-This is the source Dockerfile for the [pantheon-public/build-tools-ci](https://quay.io/repository/pantheon-public/build-tools-ci) docker image.
+This is the source Dockerfile for the [gravityworks/docker-build-tools-ci](https://hub.docker.com/repository/docker/kurttrowbridge/docker-build-tools-ci/) Docker image, based off of [pantheon-public/build-tools-ci](https://quay.io/repository/pantheon-public/build-tools-ci).
 
 ## Image Contents
 
@@ -18,6 +16,7 @@ This is the source Dockerfile for the [pantheon-public/build-tools-ci](https://q
   - [Terminus Mass Update Plugin](https://github.com/pantheon-systems/terminus-mass-update)
   - [Terminus Aliases Plugin](https://github.com/pantheon-systems/terminus-aliases-plugin)
   - [Terminus CLU Plugin](https://github.com/pantheon-systems/terminus-clu-plugin)
+- NPM
 - Test tools
   - headless chrome
   - phpunit
